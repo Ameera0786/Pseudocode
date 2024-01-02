@@ -410,61 +410,57 @@ if object clicked && right arrow pushed then
 	rotate object 90 degrees right
 if (x position of object > x position of board 1 || x position of object < 0 || y position of object <0 || y position of object > y position of board1) then
 	output “invalid placement. Place the piece elsewhere.”
-
 if x position of object > x position of board1 || x position of object < 0  || y position of object <0 || y position of object > y position of board1) then
 	output “invalid placement. Place the piece elsewhere.”
-
 if all objects on board1 && nextButton clicked then
 	next player’s turn. 
 
 // board 2
 if x position of object2 > x position of board 2 || x position of object2 < 0  || y position of object2 <0 || y position of object2 > y position of board2) then
 	output “invalid placement. Place the piece elsewhere.”
-
 if all objects on board2 && nextButton clicked then
 	while all shipStatus1 != False then
-	change camera position to focus on board1
-	player1’s turn
-	public int userRow1; 
-	while (userRow1 <1 || userRow1 >10) then 
-		public int userRow1;
-	public int userColumn1;
-	while (userColumn1<1 || userColumn1 >10) then
+		change camera position to focus on board1
+		player1’s turn
+		public int userRow1; 
+		while (userRow1 <1 || userRow1 >10) then 
+			public int userRow1;
 		public int userColumn1;
-	int x1 = userRow1;
-	int y1 = userColumn1;
-	if (x1 touching part of object) && (y1 touching part of object) then
-		change object color at x1 and y1 to blue
-	else then
-		change object color at x1 and y1 to red
-	if object’s total coordinates hit then 
-		shipStatus1 = False;
-	while all shipStatus2 != False then
-	change camera position to focus on board2
-	player2’s turn
-	public int userRow2; 
-	while (userRow2 <1 || userRow2 >10) then 
-		userRow2;
-	public int userColumn2;
-	while (userColumn2<1 || userColumn2 >10) then
-		userColumn2;
-	int x2 = userRow2;
-	int y2 = userColumn2;
-	if (x2 touching part of object) && (y2 touching part of object) then
-		change object color at x2 and y2 to blue
-	else then
-		change object color at x2 and y2 to red
-	if object’s total coordinates hit then 
-		shipStatus2 = False;
+		while (userColumn1<1 || userColumn1 >10) then
+			public int userColumn1;
+		int x1 = userRow1;
+		int y1 = userColumn1;
+		if (x1 touching part of object) && (y1 touching part of object) then
+			change object color at x1 and y1 to blue
+		else then
+			change object color at x1 and y1 to red
+		if object’s total coordinates hit then 
+			shipStatus1 = False;
+		while all shipStatus2 != False then
+			change camera position to focus on board2
+			player2’s turn
+			public int userRow2; 
+			while (userRow2 <1 || userRow2 >10) then 
+				userRow2;
+			public int userColumn2;
+			while (userColumn2<1 || userColumn2 >10) then
+				userColumn2;
+			int x2 = userRow2;
+			int y2 = userColumn2;
+			if (x2 touching part of object) && (y2 touching part of object) then
+				change object color at x2 and y2 to blue
+			else then
+				change object color at x2 and y2 to red
+			if object’s total coordinates hit then 
+				shipStatus2 = False;
 	
 
 print(“GAME OVER!”)
-if any ship on board1 has shipStatus1 = True then
-	print(“Player1 wins!”)
-else then 
-	print(“Player2 wins!”)
-
-  }	
+	if any ship on board1 has shipStatus1 = True then
+		print(“Player1 wins!”)
+	else then 
+		print(“Player2 wins!”)
+	}	
 }
 ```
 
