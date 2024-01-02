@@ -463,4 +463,43 @@ print(“GAME OVER!”)
 	}	
 }
 ```
+# Midterm
+```
+//array holds corresponding number to position. Ex. Position 1 == array[0]
+int[] posArr = new int[10] {1,2,3,4,5,6,7,8,9,10};
+
+//random num 0 - 9 inclusive. Ex. 0 may be a number. 9 may be a number
+int random = random(0,9);
+
+// make array to track steps only if starting isn’t 8
+if (random != 8){
+	int[] travelArr = new int[10-random]
+}
+
+//Loop sequence until position = 10 or starting 8. Call move function
+for (int i = 0; i<posArr.Length ;i++){
+	move(i);			
+	if (random == 8){
+		print(“STARTING POSITION: 8. STOPPING PROGRAM”);
+		break;
+	}else if (robotPos == 10){
+		print(Array.Reverse(travelArr));
+	}
+}
+
+// moves the piece + checks + assign position
+public void move(i){
+	if (random <= 5){
+		if (random-i == -1){
+			int robotPos = 10;
+		}else{
+			int robotPos = posArr[random -i];
+		}
+	}else{
+		int robotPos = posArr[random + i];	
+	}
+	print(“Position: “ + robotPos);
+	travelArr.Append(robotPos);
+}
+```
 
