@@ -251,43 +251,43 @@ bool fireMode = false;
 
 //Start game
 void main(){
-  if (start clicked){
-	  start.material = invisibleMaterial;
-    while (marioX <flagX){
-      move();
-      deathCheck();
-      coins();
-      mushroom();
-	    flower();
-	    star();
-	    warp();
-    }
-  }if (mario.collision = greenMushroom.collision){
-    lives++
-    greenMushroom.setEnabled=false;
-  }if (marioX >= flagX){
-	  // game ends, display a game over sign across the board
-	  win.material=defaultMaterial;
-  }
+  	if (start clicked){
+	  	start.material = invisibleMaterial;
+    		while (marioX <flagX){
+			move();
+		        deathCheck();
+		        coins();
+		        mushroom();
+			flower();
+		    	star();
+			warp();
+    		}
+  	}if (mario.collision = greenMushroom.collision){
+    		lives++
+    		greenMushroom.setEnabled=false;
+  	}if (marioX >= flagX){
+	  	// game ends, display a game over sign across the board
+	  	win.material=defaultMaterial;
+  	}
 }
 
 //Keyboard actions for movement
 void move(){
-  if (NOT(mario.collision.gameObject.name == “Block”) || starMode){
-    if (left arrow pushed down || “a” pushed down){
-      // move mario left
-      marioX-=2;
-    }if (right arrow pushed down || “d” pushed down){
-	    // move mario right
-	    marioX+=2;
-    }if ((up arrow pushed down || “w” pushed down || space pushed down) && mario.grounded){
-      // move mario up;
-      marioY+=2;
-      WaitForSeconds(2);
-    }
-  }while (!mario.grounded){
-    marioY- -;
-  }
+  	if (NOT(mario.collision.gameObject.name == “Block”) || starMode){
+    		if (left arrow pushed down || “a” pushed down){
+	      		// move mario left
+	      		marioX-=2;
+	    	}if (right arrow pushed down || “d” pushed down){
+		    	// move mario right
+		    	marioX+=2;
+	    	}if ((up arrow pushed down || “w” pushed down || space pushed down) && mario.grounded){
+	      		// move mario up;
+	      		marioY+=2;
+	      		WaitForSeconds(2);
+	    	}
+  	}while (!mario.grounded){
+    		marioY- -;
+  	}
 }
 
 //Checks if mario fell off the map or if he hits an enemy. Changes lives and hp and allows for //game restart
@@ -297,58 +297,58 @@ void deathCheck(){
 			enemy.setEnabled(false);
 		}else{
 			hp = hp-1;
-      if (hp ==0){
-  	    lives = lives-1
-  	    if (lives !=0){
-  		    start.material = defaultMaterial;
-  		    break;
-  	    }else{
-  			  //display game over sign and end game
-  			  gameOver.material = defaultMaterial;
-          break;
-        }
-		  }
-	  }
-  }
+      			if (hp ==0){
+  	    			lives = lives-1
+  	    			if (lives !=0){
+  		    			start.material = defaultMaterial;
+  		    			break;
+  	   	 		}else{
+  			  		//display game over sign and end game
+  			  		gameOver.material = defaultMaterial;
+          				break;
+				}
+		  	}
+	  	}
+  	}
 }
 
 //If coin block hit, coin count increases and lives if coins reach 100.
 void coins(){
-if (mario.collision == coinBlock.collision && !mario.grounded){
+	if (mario.collision == coinBlock.collision && !mario.grounded){
 		coins++
 		if (coins ==100){
-      coins = 0;
+      			coins = 0;
 			lives++;
-    }
+    		}
 	}
 }
 
 //Spawns mushroom and changes mario stats if mario and mushroom touch
 void mushroom(){
-if (mario.collision == mushroomBlock.collision && !mario.grounded){
+	if (mario.collision == mushroomBlock.collision && !mario.grounded){
 		mushroom.setEnabled = true;
 		if (mario.collision == mushroom.collision) {
-		  mushroom.setEnabled = false;
-		  mario.height= mario.height * 2;
-		  hp =2;
+			  mushroom.setEnabled = false;
+			  mario.height= mario.height * 2;
+			  hp =2;
 		}
 	}
 }
 
 // Spawns flower and changes mario stats if mario and flower touch
 void flower(){
-if (mario.collision == fireBlock.collision && !mario.grounded){
+	if (mario.collision == fireBlock.collision && !mario.grounded){
 		fireFlower.setEnabled = true;
-  if (mario.collision == fireflower.collision){
-    mario.height= mario.height * 2;
-    fireflower.setEnabled = false;
-		fireMode=true;
-		hp = 3;
+	  	if (mario.collision == fireflower.collision){
+	    		mario.height= mario.height * 2;
+	    		fireflower.setEnabled = false;
+			fireMode=true;
+			hp = 3;
 		}if (fireMode && space pressed){
-	    fireball = create(fireball);
-	    fireball.transform.position = new Vector(marioX,marioY,marioZ)
-	    fireball.shoot(player.direction());
-    }
+	    		fireball = create(fireball);
+	    		fireball.transform.position = new Vector(marioX,marioY,marioZ)
+	    		fireball.shoot(player.direction());
+    		}
 	}
 }
 
@@ -356,22 +356,24 @@ if (mario.collision == fireBlock.collision && !mario.grounded){
 void star(){
 	if (mario.collision == starBlock.collision && !mario.grounded){
 		star.setEnabled=true;
-    if (mario.collision == star.collision){
-		  star.setEnabled = false;
-		  hp=hp +starConst;
-		  starMode =true;
-		  WaitForSeconds(10);
-		  hp =hp-starConst;
-	  }
-  }
+	    	if (mario.collision == star.collision){
+			  star.setEnabled = false;
+			  hp=hp +starConst;
+			  starMode =true;
+			  WaitForSeconds(10);
+			  hp =hp-starConst;
+	  	}
+  	}
 }
 
 void warp(){
 	if (mario.collision == pipe1.collision){
-    if (marioY == pipeY && (down arrow pressed || s pressed){
-	  //teleport mario
-	  marioX == pipe2;
-    }
+    		if (marioY == pipeY && (down arrow pressed || s pressed){
+	  		//teleport mario
+	  		marioX == pipe2;
+    		}
+	}
+}
 ```
 
 
