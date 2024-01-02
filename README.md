@@ -223,44 +223,41 @@ void mine(targetDest,targetHp){
 
 
 # Mario
-- GameObject start = GameObject.Find(“Start”);
-- GameObject mario = GameObject.Find(“Mario”);
-- GameObject flag = GameObject.Find(“Flag”);
-- GameObject win = GameObject.Find(“Win”);
-- GameObject enemy = GameObject.Find(“Enemy”);
-- GameObject gameOver = GameObject.Find(“GameOver”);
-- GameObject fireFlower= GameObject.Find(“FireFlower”);
-- GameObject mushroom= GameObject.Find(“Mushroom”);
-- GameObject star= GameObject.Find(“Star”);
-- GameObject coinBlock= GameObject.Find(“CoinBlock”);
-- GameObject starBlock = GameObject.Find(“StarBlock”);
-- GameObject fireBlock = GameObject.Find(“FireFlowerBlock”);
-- GameObject mushroomBlock =GameObject.Find(“MushroomBlock”);
-- GameObject fireball =GameObject.Find(“Fireball”);
-- GameObject lifeMushroom = GameObject.Find(“ExtraLife”);
-- GameObject pipe1=GameObject.Find(“Pipe1);
-- GameObject pipe2= GameObject.Find(“Pipe2”);
-
 ```
+GameObject start = GameObject.Find(“Start”);
+GameObject mario = GameObject.Find(“Mario”);
+GameObject flag = GameObject.Find(“Flag”);
+GameObject win = GameObject.Find(“Win”);
+GameObject enemy = GameObject.Find(“Enemy”);
+GameObject gameOver = GameObject.Find(“GameOver”);
+GameObject fireFlower= GameObject.Find(“FireFlower”);
+GameObject mushroom= GameObject.Find(“Mushroom”);
+GameObject star= GameObject.Find(“Star”);
+GameObject coinBlock= GameObject.Find(“CoinBlock”);
+GameObject starBlock = GameObject.Find(“StarBlock”);
+GameObject fireBlock = GameObject.Find(“FireFlowerBlock”);
+GameObject mushroomBlock =GameObject.Find(“MushroomBlock”);
+GameObject fireball =GameObject.Find(“Fireball”);
+GameObject lifeMushroom = GameObject.Find(“ExtraLife”);
+GameObject pipe1=GameObject.Find(“Pipe1);
+GameObject pipe2= GameObject.Find(“Pipe2”);
 gameOver.material=invisibleMaterial;
 win.material=invisibleMaterial;
-```
-- int starConst = 1000000000000;
-- int hp = 1;
-- int coins = 0;
-- int lives = 3;
-- int flagX = flag.transform.position.x;
-- int flagY = flag.transform.position.y;
-- int marioX = mario.transform.position.x;
-- int marioY = mario.transform.position.y;
-- int marioZ = mario.transform.position.z;
-- int enemyX = enemy.transform.position.x;
-- int enemyY = enemy.transform.position.y;
-- int pipeY = pipe1.transform.position.y;
+int starConst = 1000000000000;
+int hp = 1;
+int coins = 0;
+int lives = 3;
+int flagX = flag.transform.position.x;
+int flagY = flag.transform.position.y;
+int marioX = mario.transform.position.x;
+int marioY = mario.transform.position.y;
+int marioZ = mario.transform.position.z;
+int enemyX = enemy.transform.position.x;
+int enemyY = enemy.transform.position.y;
+int pipeY = pipe1.transform.position.y;
+bool starMode = false;
+bool fireMode = false;
 
-- bool starMode = false;
-- bool fireMode = false;
-```
 //Start game
 void main(){
   if (start clicked){
@@ -282,8 +279,7 @@ void main(){
 	  win.material=defaultMaterial;
   }
 }
-```
-```
+
 //Keyboard actions for movement
 void move(){
   if (NOT(mario.collision.gameObject.name == “Block”) || starMode){
@@ -302,8 +298,7 @@ void move(){
     marioY- -;
   }
 }
-```
-```
+
 //Checks if mario fell off the map or if he hits an enemy. Changes lives and hp and allows for //game restart
 void deathCheck(){
 	if ((mario.collision == enemy.collision) || marioY <0){
@@ -325,8 +320,7 @@ void deathCheck(){
 	  }
   }
 }
-```
-```
+
 //If coin block hit, coin count increases and lives if coins reach 100.
 void coins(){
 if (mario.collision == coinBlock.collision && !mario.grounded){
@@ -337,8 +331,7 @@ if (mario.collision == coinBlock.collision && !mario.grounded){
     }
 	}
 }
-```
-```
+
 //Spawns mushroom and changes mario stats if mario and mushroom touch
 void mushroom(){
 if (mario.collision == mushroomBlock.collision && !mario.grounded){
@@ -350,8 +343,7 @@ if (mario.collision == mushroomBlock.collision && !mario.grounded){
 		}
 	}
 }
-```
-```
+
 // Spawns flower and changes mario stats if mario and flower touch
 void flower(){
 if (mario.collision == fireBlock.collision && !mario.grounded){
@@ -368,8 +360,7 @@ if (mario.collision == fireBlock.collision && !mario.grounded){
     }
 	}
 }
-````
-```
+
 //Spawns star and changes mario stats if mario and star touch
 void star(){
 	if (mario.collision == starBlock.collision && !mario.grounded){
@@ -383,19 +374,18 @@ void star(){
 	  }
   }
 }
-```
-```
+
 void warp(){
 	if (mario.collision == pipe1.collision){
     if (marioY == pipeY && (down arrow pressed || s pressed){
 	  //teleport mario
 	  marioX == pipe2;
     }
-
+```
 
 
 # Battleship
-
+```
 //object used as general term to describe any object. Anything happening to object refers to individual objects
 
 // Objects, each object has size created. 
