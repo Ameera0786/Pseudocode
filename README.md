@@ -1,69 +1,67 @@
 # Pseudocode
 Game development and problem solving project pseudocode and code on `unity` for remembrance
 # Final Project
-  
+```  
 //Not used! ONLY FOR REFERENCE
 //
-- CONST int death = 0;
-- CONST int retreat = 2;
-- CONST int rifleFireHitEnemy = 1;                   // 1/5
-- CONST int grenadeExplosion = 3;                //1/4
-- CONST int rifleFireHitPlayer = 1;                //1/5
-- CONST int knifeWound = 1;                       //1/3
-- CONST knifeAmmo = 1;
-- CONST knifeDistance = 10;
-- CONST int rifleType1Ammo = 15;      //Autoreload
-- CONST int rifleType2Ammo = 15;     //Must get ammo
-- CONST rifleType1Distance = 100;
-- CONST rifleType2Distance = 150;
+CONST int death = 0;
+CONST int retreat = 2;
+CONST int rifleFireHitEnemy = 1;                   // 1/5
+CONST int grenadeExplosion = 3;                //1/4
+CONST int rifleFireHitPlayer = 1;                //1/5
+CONST int knifeWound = 1;                       //1/3
+CONST knifeAmmo = 1;
+CONST knifeDistance = 10;
+CONST int rifleType1Ammo = 15;      //Autoreload
+CONST int rifleType2Ammo = 15;     //Must get ammo
+CONST rifleType1Distance = 100;
+CONST rifleType2Distance = 150;
 
   
 // Consts
 
 
-- CONST int truck = 800;
-- CONST int crate = 400	
-- CONST int explosion1=300;                 //1/10	
-- CONST int explosion2=600;                 //1/10	
-- CONST int explosion3=900;                 //1/10
+CONST int truck = 800;
+CONST int crate = 400	
+CONST int explosion1=300;                 //1/10	
+CONST int explosion2=600;                 //1/10	
+CONST int explosion3=900;                 //1/10
 
   
 // Variables
 
 
-- int enemy1HP= 5;                      //random
-- int enemy2HP= 5;                      //random
-- int playerHP = 5;                     //random
-- int grenadeAmmo = 3;
-- int rifleAmmo = 15;
-- int enemy1Ammo = 15;
-- int enemy2Ammo= 15;
-- bool enemy1Alive = true;
-- bool enemy2Alive = true;
-- bool playerAlive = true;
-- bool hidden = false;
-- bool mine1 = true;
-- bool mine2 = true;
-- bool mine3 = true;
-- bool end = false;
-- int enemy1Dest = 1000;                //1/10
-- int enemy2Dest = 500;                  //1/3
-- int playerDest = 100;                     //1
+int enemy1HP= 5;                      //random
+int enemy2HP= 5;                      //random
+int playerHP = 5;                     //random
+int grenadeAmmo = 3;
+int rifleAmmo = 15;
+int enemy1Ammo = 15;
+int enemy2Ammo= 15;
+bool enemy1Alive = true;
+bool enemy2Alive = true;
+bool playerAlive = true;
+bool hidden = false;
+bool mine1 = true;
+bool mine2 = true;
+bool mine3 = true;
+bool end = false;
+int enemy1Dest = 1000;                //1/10
+int enemy2Dest = 500;                  //1/3
+int playerDest = 100;                     //1
   
-```
 while (!end){
- death();
+ 	death();
  	//if game not over
- 	 if (enemy1Alive || enemy2Alive){
- 	  playerSee();
-  }if (enemy1Alive){
-    enemy1See();
-  }if (enemy2Alive){
-    enemy2See();
-  }
+	if (enemy1Alive || enemy2Alive){
+ 	  	playerSee();
+  	}if (enemy1Alive){
+    		enemy1See();
+  	}if (enemy2Alive){
+    		enemy2See();
+  	}
 }
-```
-```
+
 void death(){
 	if (enemy1HP <= 0 && enemy2HP <=0 ){
 		print(“PLAYER WINS”);
@@ -80,89 +78,86 @@ void death(){
 		enemy2Alive = false;
 	}
 }
-```
-```
+
 void playerSee(){
 	mine(playerDest, playerHP);
-  int random = random(1,3);
+  	int random = random(1,3);
 	if (playerHP<3){
-	  //Player retreats
-	  playerDest -= 40;
+	  	//Player retreats
+	  	playerDest -= 40;
 	}if (random ==1){	
 		//Player sees enemy
-    if (playerHP >2){
-  		playerDest +=20;
-  	}if (rifleAmmo <=0){
-  		if (playerDest- truck >0 && playerDest-truck <playerDest-crate){
-  			//Player closer to truck. Move to left
-  			playerDest-=20;
-  		}if (playerDest- truck <0 && playerDest-truck <playerDest-crate){
-  			//Player closer to truck. Move right
-  			playerDest+=20;
-  		}if (playerDest- crate>0 && playerDest-truck <playerDest-crate){
-  			//Player closer to crate. Move to left
-  			playerDest-=20;
-  		}if (playerDest- crate<0 && playerDest-truck <playerDest-crate){
-  			//Player closer to crate. Move right
-  			playerDest+=20;
-  		}
-  	}if (enemy1Alive && playerDest - enemy1Dest <=150 && playerDest - enemy1Dest >= -150){
-  		riflePlayer();
-  	}if (enemy2Alive && playerDest - enemy2Dest <=150 && playerDest - enemy2Dest >= -150){
-  		riflePlayer();
-  	}if (if enemy1Alive && playerDest - enemy1Dest <=30 && playerDest - enemy1Dest >= -30 && grenadeAmmo != 0){
-  		grenade(enemy1HP);
-  	}if (enemy2Alive && playerDest - enemy2Dest <=30 && playerDest - enemy2Dest >= -30 && grenadeAmmo !=0){
-  		grenade(enemy2HP);
+    		if (playerHP >2){
+  			playerDest +=20;
+  		}if (rifleAmmo <=0){
+	  		if (playerDest- truck >0 && playerDest-truck <playerDest-crate){
+	  			//Player closer to truck. Move to left
+	  			playerDest-=20;
+	  		}if (playerDest- truck <0 && playerDest-truck <playerDest-crate){
+	  			//Player closer to truck. Move right
+	  			playerDest+=20;
+	  		}if (playerDest- crate>0 && playerDest-truck <playerDest-crate){
+	  			//Player closer to crate. Move to left
+	  			playerDest-=20;
+	  		}if (playerDest- crate<0 && playerDest-truck <playerDest-crate){
+	  			//Player closer to crate. Move right
+	  			playerDest+=20;
+	  		}
+	  	}if (enemy1Alive && playerDest - enemy1Dest <=150 && playerDest - enemy1Dest >= -150){
+	  		riflePlayer();
+	  	}if (enemy2Alive && playerDest - enemy2Dest <=150 && playerDest - enemy2Dest >= -150){
+	  		riflePlayer();
+	  	}if (if enemy1Alive && playerDest - enemy1Dest <=30 && playerDest - enemy1Dest >= -30 && grenadeAmmo != 0){
+	  		grenade(enemy1HP);
+	  	}if (enemy2Alive && playerDest - enemy2Dest <=30 && playerDest - enemy2Dest >= -30 && grenadeAmmo !=0){
+	  		grenade(enemy2HP);
+	  	}
+  	}if (playerDest == crate || playerDest == truck){
+  		//player hiding
+  		hidden = true;
+  		rifleAmmo = 15;
+  	}else{
+  		hidden = false;
   	}
-  }if (playerDest == crate || playerDest == truck){
-  	//player hiding
-  	hidden = true;
-  rifleAmmo = 15;
-  }else{
-  	hidden = false;
-  }
 }
-```
-```
+
 void enemy1See(){
 	mine(enemy1Dest,enemy1HP);
-  int random1 = random(1,10);
-  if (enemy1HP<3){
-  	//Enemy1 retreats
-  	enemy1Dest -= 40;
+  	int random1 = random(1,10);
+  	if (enemy1HP<3){
+  		//Enemy1 retreats
+  		enemy1Dest -= 40;
 	}if (random1 ==1 && !hidden){
-    //Enemy1 sees player
-  if (enemy1HP >2){
-  		enemy1Dest +=20;
+    		//Enemy1 sees player
+  		if (enemy1HP >2){
+  			enemy1Dest +=20;
   		}if (playerDest - enemy1Dest <=100 && playerDest - enemy1Dest >= -100){
-  		rifleEnemy1(enemy1Ammo);
-  	}if (playerDest - enemy1Dest <=10 && playerDest - enemy1Dest >= -10){
-  		knife();
+  			rifleEnemy1(enemy1Ammo);
+  		}if (playerDest - enemy1Dest <=10 && playerDest - enemy1Dest >= -10){
+  			knife();
+  		}
   	}
-  }
 }
-```
-```
+
 void enemy2See(){
 	mine(enemy2Dest,enemy2HP);	
-  int random2 = random(1,3);
-  if (enemy2HP <3){
-	  //Enemy2 retreats
-	  enemy2Dest -= 40;
+	int random2 = random(1,3);
+	if (enemy2HP <3){
+		//Enemy2 retreats
+		enemy2Dest -= 40;
 	}if (random2 ==1) && !hidden{
-    if (enemy2HP >2){
-		  //Enemy2 sees player
-		  enemy2Dest +=20;
-  	}if (playerDest - enemy2Dest <=100 && playerDest - enemy2Dest >= -100){
-  		rifleEnemy(enemy2Ammo);
-  	}if (playerDest - enemy2Dest <=10 && playerDest - enemy2Dest >= -10){
-  		knife();
-  	}
-  }
+		if (enemy2HP >2){
+			//Enemy2 sees player
+			enemy2Dest +=20;
+		}if (playerDest - enemy2Dest <=100 && playerDest - enemy2Dest >= -100){
+			rifleEnemy(enemy2Ammo);
+		}if (playerDest - enemy2Dest <=10 && playerDest - enemy2Dest >= -10){
+			knife();
+		}
+	}
 }
-```
-```
+
+
 void grenade(int hp){
 	int randomGrenade = random(1,4);
 	if (randomGrenade == 1){
@@ -171,8 +166,7 @@ void grenade(int hp){
 		hp -=3;
 	}
 }
-```
-```
+
 void knife(){
 	int randomKnife = random(1,3);
 	if (randomKnife == 1){
@@ -180,8 +174,7 @@ void knife(){
 		playerHP --;
 	}
 }
-```
-```
+
 void riflePlayer(){
 	if (rifleAmmo >0 && !hidden){
 		int randomShot = random(1,5);
@@ -191,8 +184,7 @@ void riflePlayer(){
 		}
 	}
 }
-```
-```
+
 void rifleEnemy(int ammo){
 	if (ammo >0){
 		int randomShot1 = random(1,5);
@@ -205,8 +197,7 @@ void rifleEnemy(int ammo){
 		ammo= 15;
 	}
 }
-```
-```
+
 void mine(targetDest,targetHp){
 	if (targetDest == explosion1 && mine1){
 		mine1 = false;
