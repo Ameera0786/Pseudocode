@@ -1,4 +1,4 @@
-# Pseudocode
+# Pseudocode from Game Logic and Problem Solving for future references on C# and in general coding
 Game development and problem solving project pseudocode and code on `unity` for remembrance
 # Final Project
 ```  
